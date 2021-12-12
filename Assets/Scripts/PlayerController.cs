@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,7 +16,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;//Referencia al rigidbody de la esfera
     private int count;//Contador de pickups
     private float movementX;
-    private float movementY;    
+    private float movementY;
+    [SerializeField]
+    private GameObject newGameObj;
+    private Button newGameButton;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +28,9 @@ public class PlayerController : MonoBehaviour
         count = 0;
         SetCountText();
         winTextObject.SetActive(false);
+        this.newGameObj.SetActive(false);
+        this.newGameButton = this.newGameObj.GetComponent<Button>();
+        this.newGameButton.onClick.AddListener(delegate { this.NewGame(); });
     }
 
     void OnMove(InputValue movementValue)
@@ -37,7 +45,10 @@ public class PlayerController : MonoBehaviour
         countText.text = "Count: " + count.ToString();//Modificar el texto de la UI
         if (count >= 12)//Mostrar mensaje de fin de juego
         {
-            winTextObject.SetActive(true);          
+            winTextObject.SetActive(true);
+            this.newGameObj.SetActive(true);
+            Time.timeScale = 0;
+
         }
     }
 
@@ -55,5 +66,11 @@ public class PlayerController : MonoBehaviour
             count = count + 1;
             SetCountText();
         }      
+    }
+
+    private void NewGame()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 }

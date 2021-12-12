@@ -354,4 +354,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camino: {fileID: 0}
   nodos: []
-  velocidad: 10
+  velocidad: 7
