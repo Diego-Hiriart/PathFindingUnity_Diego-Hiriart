@@ -1,0 +1,13 @@
+Diego Hiriart León
+2021-Diciembre-12
+Ingeniería de Software
+ISWZ2104-01 Programación V
+
+Path Finding en Unity.
+
+Juego modificado: Roll-a-Ball
+
+-Al juego se le añadió un enemigo que persigue al jugador (pelota) por el mapa, haciendo que sea más difícil recoger los pick-ups. 
+-Los obstáculos verdes existían desde la primera versión del juego, pero contribuyen aún más a la dificultad ahora que también existe un enemigo que persigue y no solo sigue un camino fijo.
+
+El proyecto completo se peude encontrar en: https://github.com/Diego-Hiriart/PathFindingUnity_Diego-Hiriart
